@@ -34,20 +34,33 @@ var isPalindrome = function(string) {
   var reverseArray = originalArray.slice().reverse();
   var isPal;
 
-    for (var index = 0; index < originalArray.length; index ++) {
-      if (originalArray[index] === reverseArray[index]) {
-        isPal = true;
-      } else  {
-        isPal = false;
-        break
-      }
+  for (var index = 0; index < originalArray.length; index ++) {
+    if (originalArray[index] === reverseArray[index]) {
+      isPal = true;
+    } else  {
+      isPal = false;
+      break
     }
-    if (isPal === true) {
-      return "This is a palindrome!"
-    } else {
-      return "this is NOT a palindrome!"
-    }
+  }
+
+  if (isPal === true) {
+    return "This is a palindrome!"
+  } else {
+    return "this is NOT a palindrome!"
+  }
 }
+
+var primeNumber = function(number) {
+  var primeList = [];
+  for(var i = 2; i <= number; i++) {
+    if (i === 2 || i === 3 || i === 5 || i === 7) {
+     primeList.push(i);
+   } else if (i%2 != 0 && i%3 != 0 && i%5 != 0 && i%7 != 0) {
+      primeList.push(i);
+    }
+  }
+  return primeList;
+};
 
 
 //Interface Logic
@@ -62,4 +75,9 @@ $(document).ready(function() {
     $(".output-palindrome").text(isPalindrome($("#input-pal").val()));
 
   })
+
+  $("#primeNumber").submit(function(event){
+    event.preventDefault();
+    $(".output-pri").text(primeNumber(parseInt($("#input-pri").val())));
+  });
 })
