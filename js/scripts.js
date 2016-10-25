@@ -12,10 +12,21 @@ var factorial = function(num) {
   }
 }
 
+var factorialRecursive = function(num) {
+  if (num < 0) {
+  return "choose a number >= 0"
+  } else if (num <=1) {
+  return 1
+  } else {
+
+    return (num * factorialRecursive(num-1));
+  }
+}
+
 $(document).ready(function() {
   $("#factorial").submit(function(event){
     event.preventDefault();
-    $(".output").text(factorial(parseInt($("#input").val())));
+    $(".output").text(factorialRecursive(parseInt($("#input").val())));
 
   })
 })
