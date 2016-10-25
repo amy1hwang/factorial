@@ -30,7 +30,8 @@ var factorialRecursive = function(num) {
 
 //Function to determine if a string is a palindrome.
 var isPalindrome = function(string) {
-  var originalArray = string.split("");
+  var lowerStr = string.toLowerCase();
+  var originalArray = lowerStr.split("");
   var reverseArray = originalArray.slice().reverse();
   var isPal;
 
@@ -52,15 +53,20 @@ var isPalindrome = function(string) {
 
 var primeNumber = function(number) {
   var primeList = [];
-  for(var i = 2; i <= number; i++) {
-    if (i === 2 || i === 3 || i === 5 || i === 7) {
-     primeList.push(i);
-   } else if (i%2 != 0 && i%3 != 0 && i%5 != 0 && i%7 != 0) {
-      primeList.push(i);
+
+  if (number > 100){
+    return "Enter a number less than 100.";
+  } else {
+    for(var i = 2; i <= number; i++) {
+      if (i === 2 || i === 3 || i === 5 || i === 7) {
+       primeList.push(i);
+     }  else if (i%2 != 0 && i%3 != 0 && i%5 != 0 && i%7 != 0) {
+        primeList.push(i);
+      }
     }
+    return primeList;
   }
-  return primeList;
-};
+}
 
 
 //Interface Logic
